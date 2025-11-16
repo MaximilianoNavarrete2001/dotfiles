@@ -1,0 +1,200 @@
+
+# --------------------------------
+#  Archivo de configuracion de i3
+# --------------------------------
+
+# -- Configuraciones  --
+
+# Tecla super
+set $mod Mod4
+
+# Fuente
+font pango:FiraCode 15
+
+# Cerrar una ventana
+bindsym $mod+Shift+q kill
+
+# Recarga el archivo de configuracion
+bindsym $mod+Shift+c reload
+
+# Reinicio de i3
+bindsym $mod+Shift+r restart
+
+# Configuracion para el bore de las ventanas
+for_window [class="^. *"] border pixel 1
+
+# Configuracion del teclado
+exec --no-startup-id setxkbmap es
+
+# Configuracion de picom "Transpariencia"
+exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
+
+# Configuracion de fondo de pantalla
+exec --no-startup-id feh --bg-scale ~/Fondos/fondo6.png
+
+# Captura de pantalla 
+bindsym Print exec --no-startup-id maim -s ~/Imagenes/Capturas/captura-$(date +%F-%T).png
+
+# Para modificar el brillo de la pantalla
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
+exec --no-startup-id xfsettingsd
+
+gaps outer 3
+gaps inner 5
+smart_gaps on
+smart_borders on
+
+
+# -- Terminal --
+#exec --no-startup-id kitty
+bindsym $mod+Return exec i3-sensible-terminal
+
+# -- Keybindings para sonido --
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec amixer -M sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -M sset Master 5%-
+bindsym XF86AudioMute exec amixer sset Master toggle
+
+# $mod + mause mueves la ventana
+tiling_drag modifier titlebar
+
+# Lanzador de aplicaciones rofi
+bindsym $mod+d exec --no-startup-id ~/Script/automat/rofi-only.sh
+
+# Atajo de teclado para acomodar 3 vantanas
+bindsym $mod+m exec --no-startup-id ~/Script/automat/i3_window.py
+
+
+
+# -- Keybindings de navegación y organización de ventanas --
+
+# Moverme entre ventanas 
+bindsym $mod+h focus left  
+bindsym $mod+j focus down 
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Mover la ventana 
+bindsym $mod+Shift+h move left 
+bindsym $mod+Shift+j move down 
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# fullscreen 
+bindsym $mod+f fullscreen toggle
+
+# Layaut 
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# -- Ventanas flotante --
+
+# Abre la ventana en modo flotante
+bindsym $mod+Shift+space floating toggle
+
+# Cambiar en el el foco en modo flotante
+bindsym $mod+space focus mode_toggle
+
+# Desplazar la ventana flotante
+floating_modifier $mod
+
+# -- Workspaces --
+
+# Nombres
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Mover al Workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# Mover el Workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# Redimencionar las ventanas
+mode "resize" {
+        # Redimenciona las ventansa con las s
+        bindsym Left resize shrink width 3 px or 3 ppt
+        bindsym Down resize grow height 3 px or 3 ppt
+        bindsym Up resize shrink height 3 px or 3 ppt
+        bindsym Right resize grow width 3 px or 3 ppt
+
+        # Salir del modo
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Barra
+bar {
+    position top
+    font pango:FiraCode 12
+    status_command i3status
+}
+
+# --- Investigar ---
+#exec --no-startup-id dex --autostart --environment i3
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
+#exec --no-startup-id nm-applet
+
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# alternatively, you can use the cursor keys:
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
+
+# alternatively, you can use the cursor keys:
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+#bindsym $mod+b split h
+# split in vertical orientation
+#bindsym $mod+v split v
+
+# Salir de i3 
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+#bindsym $mod+p focus parent
+#bindsym $mod+o focus child
+
+
+
+
