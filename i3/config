@@ -61,10 +61,10 @@ bindsym XF86AudioMute exec amixer sset Master toggle
 tiling_drag modifier titlebar
 
 # Lanzador de aplicaciones rofi
-bindsym $mod+d exec --no-startup-id ~/Script/automat/rofi-only.sh
+bindsym $mod+d exec --no-startup-id ~/Script/rofi-only.sh
 
 # Atajo de teclado para acomodar 3 vantanas
-bindsym $mod+m exec --no-startup-id ~/Script/automat/i3_window.py
+bindsym $mod+m exec --no-startup-id ~/Script/i3_window.py
 
 
 

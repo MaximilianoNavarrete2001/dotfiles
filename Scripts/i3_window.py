@@ -1,0 +1,1 @@
+/home/Hacker/Script/i3_window.py
