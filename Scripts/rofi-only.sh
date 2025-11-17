@@ -1,1 +1,0 @@
-/home/Hacker/Script/rofi-only.sh
