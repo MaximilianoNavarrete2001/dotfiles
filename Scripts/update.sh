@@ -1,13 +1,22 @@
 #!/usr/bin/env bash
 
-# ================================
+# =======================================================
 #  Script: update-system.sh
+#  Este script se ejecuta automáticamente gracias a:
+#
+#    • Servicio : update-system.service
+#    • Timer    : update-system.timer (OnCalendar=weekly)
+#    • Modo     : Persistente (Persistent=true)
+#
+#  No requiere intervención del usuario.
+#  Arch Linux se actualiza, limpia y mantiene solo.
+#
 #  Descripción:
-#    - Actualiza repos oficiales
-#    - Actualiza paquetes AUR (si existe yay)
-#    - Limpia dependencias huérfanas
-#    - Limpia la caché de pacman
-# ================================
+#    - Actualiza repos oficiales.
+#    - Actualiza paquetes AUR.
+#    - Limpia dependencias huérfanas.
+#    - Limpia la caché de pacman.
+# ========================================================
 
 set -e 
 
@@ -39,3 +48,5 @@ fi
 
 echo
 echo " ✅ Sistema actualizado y limpio."
+
+

@@ -2,12 +2,18 @@
 set -euo pipefail
 
 # --- Menu minimalista solo con Firefox y Thunar ---
-opcion="$(printf "ChatGPT\nWhatsApp\nYouTube\nFirefox\nThunar\nTyping\nUdemy\nMastermind" | rofi -dmenu -p 'Abrir' \
+opcion="$(printf "Vim\nChatGPT\nWhatsApp\nYouTube\nGithub\nFirefox\nThunar\nTyping\nUdemy\nMastermind" | rofi -dmenu -p 'Abrir' \
     -theme-str 'window { width: 24%; padding: 8px; }' \
     -theme-str 'listview { lines: 5; fixed-height: true; }')"
 
 # --- Switch en bash ---
 case "$opcion" in
+    Github)
+        nohup firefox --new-tab "https://github.com/MaximilianoNavarrete2001"
+        ;;
+    Vim)
+        nohup kitty -e vim >/dev/null 2>&1 &
+        ;;
     Firefox)
         nohup firefox >/dev/null 2>&1 &
         ;;
