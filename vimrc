@@ -261,7 +261,7 @@ hi StartifyFile ctermfg=223
 " 1) lista de CONFIGURACIÓN
 function! s:startify_config()
   return [
-        \ {'line': ' -> Scripts system', 'cmd': ':e ~/Script/automat/'},
+        \ {'line': ' -> Scripts system', 'cmd': ':e ~/Script'},
         \ {'line': ' -> .vimrc',         'cmd': ':e ~/.vimrc'},
         \ {'line': ' -> i3 config',      'cmd': ':e ~/.config/i3/config'},
         \ ]

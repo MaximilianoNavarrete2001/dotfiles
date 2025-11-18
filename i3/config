@@ -21,7 +21,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Configuracion para el bore de las ventanas
-for_window [class="^. *"] border pixel 1
+for_window [class="^. *"] border pixel 2
 
 # Configuracion del teclado
 exec --no-startup-id setxkbmap es
@@ -41,9 +41,10 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 exec --no-startup-id xfsettingsd
 
-gaps outer 3
+gaps outer 2
 gaps inner 5
-smart_gaps on
+
+smart_gaps off
 smart_borders on
 
 
@@ -155,12 +156,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+# --- polybar ---
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
 # Barra
-bar {
-    position top
-    font pango:FiraCode 12
-    status_command i3status
-}
+# bar {
+#     position top
+#     font pango:FiraCode 12
+#     status_command i3status
+# }
 
 # --- Investigar ---
 #exec --no-startup-id dex --autostart --environment i3
