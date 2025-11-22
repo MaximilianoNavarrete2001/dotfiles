@@ -27,7 +27,7 @@ fi
 if [[ "$battery_status" == "Discharging" && $battery_level -le $LOW_THRESHOLD ]]; then
     if [[ "$low_active" != "1" ]]; then
         notify-send -u critical -r "$LOW_ID" -t 0 \
-            "🔋 Low Battery" "Level: ${battery_level}%"
+            "Low Battery" "Level: ${battery_level}%"
         low_active=1
     fi
 
@@ -39,7 +39,7 @@ fi
 if [[ "$battery_status" == "Charging" && $battery_level -ge $HIGH_THRESHOLD ]]; then
     if [[ "$high_active" != "1" ]]; then
         notify-send -u normal -r "$HIGH_ID" -t 0 \
-            "⚡ Battery almost full" "Level: ${battery_level}%"
+            "Battery almost full" "Level: ${battery_level}%"
         high_active=1
     fi
 

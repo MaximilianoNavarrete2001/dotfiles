@@ -13,7 +13,7 @@ on_error() {
     local line="$1"
     local code="$2"
 
-    notify-send -u critical -r "$ERROR_ID" "🛑 Update Failed" \"
+    notify-send -u critical -r "$ERROR_ID" "Update Failed" \"
 "Step: $CURRENT_STEP
 Line: $line
 Exit code: $code"
@@ -45,5 +45,4 @@ fi
 trap - ERR
 
 notify-send -u normal -t 600000 -r "$SUCCESS_ID" \
-    "✅ System Updated" \
-    "All update steps completed successfully."
+    "System Updated"

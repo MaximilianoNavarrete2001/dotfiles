@@ -20,6 +20,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} "Autocompletado
 Plug 'vim-scripts/bash-support.vim'             "Syntaxis para  Bash
 Plug 'vim-python/python-syntax'                 "Syntaxis para python 
 Plug 'farmergreg/vim-lastplace'                 "Ultima posicion
+Plug 'chrisbra/Colorizer'
+
 
 "Barra
 Plug 'vim-airline/vim-airline'
@@ -79,6 +81,9 @@ let g:airline_theme = 'wombat'
 let g:airline#extensions#branch#enabled = 1    " Muestra la rama actual de Git
 let g:airline_theme='gruvbox'
 set laststatus=2
+
+autocmd BufRead * ColorHighlight
+
 
 "-------------------
 " Atajos de teclado
