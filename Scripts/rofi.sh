@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# --- Menu minimalista solo con Firefox y Thunar ---
-opcion="$(printf "Vim\nChatGPT\nWhatsApp\nYouTube\nGithub\nFirefox\nThunar\nTyping\nUdemy\nMastermind" | rofi -dmenu -p 'Abrir' \
+opcion="$(printf "Vim\nChatGPT\nWhatsApp\nYouTube\nGithub\nFirefox\nThunar\nTyping\nUdemy\nMastermind\nNetflix\nCrunchyroll" | rofi -dmenu -p 'Abrir' \
     -theme-str 'window { width: 24%; padding: 8px; }' \
     -theme-str 'listview { lines: 5; fixed-height: true; }')"
 
-# --- Switch en bash ---
 case "$opcion" in
+    Netflix)
+        nohup firefox --new-tab "https://www.netflix.com/browse"  >/dev/null 2>&1 &
+        ;;
+    Crunchyroll)
+        nohup firefox --new-tab "https://www.crunchyroll.com/es/discover" >/dev/null 2>&1 &
+        ;;
     Github)
         nohup firefox --new-tab "https://github.com/MaximilianoNavarrete2001"
         ;;

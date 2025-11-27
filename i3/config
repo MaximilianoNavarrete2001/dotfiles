@@ -30,7 +30,7 @@ exec --no-startup-id setxkbmap es
 exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
 
 # Configuracion de fondo de pantalla
-exec --no-startup-id feh --bg-scale ~/Fondos/fondo6.png
+exec --no-startup-id feh --bg-scale ~/Imagenes/Fondos/fondo6.png
 exec --no-startup-id dunst
 
 
@@ -68,7 +68,6 @@ bindsym $mod+d exec --no-startup-id ~/Script/rofi.sh
 
 # Atajo de teclado para acomodar 3 vantanas
 bindsym $mod+m exec --no-startup-id ~/Script/i3_window.py
-
 
 
 # -- Keybindings de navegación y organización de ventanas --
@@ -161,47 +160,4 @@ bindsym $mod+r mode "resize"
 
 # --- polybar ---
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-
-# Barra
-# bar {
-#     position top
-#     font pango:FiraCode 12
-#     status_command i3status
-# }
-
-# --- Investigar ---
-#exec --no-startup-id dex --autostart --environment i3
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
-#exec --no-startup-id nm-applet
-
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Left focus left
-# bindsym $mod+Down focus down
-# bindsym $mod+Up focus up
-# bindsym $mod+Right focus right
-
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Shift+Left move left
-# bindsym $mod+Shift+Down move down
-# bindsym $mod+Shift+Up move up
-# bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-#bindsym $mod+b split h
-# split in vertical orientation
-#bindsym $mod+v split v
-
-# Salir de i3 
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-#bindsym $mod+p focus parent
-#bindsym $mod+o focus child
-
-
-
 
