@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-opcion="$(printf "Vim\nChatGPT\nWhatsApp\nYouTube\nGithub\nFirefox\nThunar\nTyping\nUdemy\nMastermind\nNetflix\nCrunchyroll" | rofi -dmenu -p 'Abrir' \
+opcion="$(printf "Yazi\nChatGPT\nWhatsApp\nYouTube\nGithub\nFirefox\nThunar\nTyping\nUdemy\nMastermind\nNetflix\nCrunchyroll\n󰐥 PowerOff\n󰜉 Reboot\n󰒲 Suspend" | rofi -dmenu -p '󱓞 ' \
     -theme-str 'window { width: 24%; padding: 8px; }' \
-    -theme-str 'listview { lines: 5; fixed-height: true; }')"
+    -theme-str 'listview { lines: 6; fixed-height: true; }')"
 
 case "$opcion" in
     Netflix)
@@ -15,8 +15,8 @@ case "$opcion" in
     Github)
         nohup firefox --new-tab "https://github.com/MaximilianoNavarrete2001"
         ;;
-    Vim)
-        nohup kitty -e vim >/dev/null 2>&1 &
+    Yazi)
+        nohup kitty -e yazi >/dev/null 2>&1 &
         ;;
     Firefox)
         nohup firefox >/dev/null 2>&1 &
@@ -42,6 +42,12 @@ case "$opcion" in
     YouTube)
         nohup firefox --new-tab "https://www.youtube.com" >/dev/null 2>&1 &
         ;;
+    "󰐥 PowerOff")
+        systemctl poweroff ;;
+    "󰜉 Reboot")
+        systemctl reboot ;;
+    "󰒲 Suspend")
+        systemctl suspend ;;
     *)
         exit 0
         ;;

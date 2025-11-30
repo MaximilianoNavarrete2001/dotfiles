@@ -1,10 +1,9 @@
-
-"-------------
-" Mis plugins
-"-------------
+" =============
+"  Mis plugin
+" =============
 call plug#begin('~/.vim/plugged')
 
-"Temas
+"Theme
 Plug 'morhetz/gruvbox'
 
 "NerdTree
@@ -22,15 +21,9 @@ Plug 'vim-python/python-syntax'                 "Syntaxis para python
 Plug 'farmergreg/vim-lastplace'                 "Ultima posicion
 Plug 'chrisbra/Colorizer'
 
-
 "Barra
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-"Pantalla de inicio
-Plug 'mhinz/vim-startify'
-let g:startify_enable_number = 0
-let g:startify_enable_special = 0
 
 "Git
 Plug 'tpope/vim-fugitive'      " Cliente Git dentro de Vim (:Git, :Gdiff, :Gblame...)
@@ -243,55 +236,6 @@ vnoremap <Down>  <Nop>
 vnoremap <Left>  <Nop>
 vnoremap <Right> <Nop>
 
-
-" Menu
-let g:startify_custom_header = [
-\ '  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░',
-\ '              V I M   ·   A R C H           ',
-\ '  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░',
-\ ' ',
-\ '    Bienvenido, Max. ',
-\ ' ',
-\ '        "KEEP IT SIMPLE, STUPID."',
-\ ' '
-\ ]
-
-hi StartifyHeader ctermfg=109
-hi StartifyBracket ctermfg=245
-hi StartifyNumber ctermfg=109
-hi StartifyPath ctermfg=245
-hi StartifySlash ctermfg=245
-hi StartifyFile ctermfg=223
-
-" 1) lista de CONFIGURACIÓN
-function! s:startify_config()
-  return [
-        \ {'line': ' -> Scripts system', 'cmd': ':e ~/Script'},
-        \ {'line': ' -> .vimrc',         'cmd': ':e ~/.vimrc'},
-        \ {'line': ' -> i3 config',      'cmd': ':e ~/.config/i3/config'},
-        \ ]
-endfunction
-
-" 2) lista de LENGUAJES
-function! s:startify_langs()
-  return [
-        \ {'line': ' -> ASM',    'cmd': ':e ~/Programming/asm/'},
-        \ {'line': ' -> Python', 'cmd': ':e ~/Programming/py/Course/'},
-        \ {'line': ' -> Java',   'cmd': ':e ~/Programming/java/'},
-        \ {'line': ' -> C',      'cmd': ':e ~/Programming/c/'},
-        \ {'line': ' -> Bash',   'cmd': ':e ~/Programming/sh/'},
-        \ ]
-endfunction
-
-" 3) ahora sí, las dos secciones separadas
-let g:startify_lists = [
-      \ { 'type': function('s:startify_config'), 'header': ['   🔧 Configuración'] },
-      \ { 'type': function('s:startify_langs'),  'header': ['   💻 Lenguajes'] },
-      \ ]
-
-
-" Usa espacio como <leader> (atajos personalizados)
-let mapleader = " "
 
 " ---------- vim-fugitive ----------
 " Estado de git, como 'git status'
